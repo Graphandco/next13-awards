@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { menuSlide } from "../animation";
@@ -12,8 +11,8 @@ const navItems = [
         href: "/",
     },
     {
-        title: "Work",
-        href: "/work",
+        title: "Prestations",
+        href: "/prestations",
     },
     {
         title: "About",
@@ -35,17 +34,17 @@ export default function index() {
             initial="initial"
             animate="enter"
             exit="exit"
-            className={styles.menu}
+            className="burger-menu-wrapper"
         >
-            <div className={styles.body}>
+            <div className="burger-menu-content">
                 <div
                     onMouseLeave={() => {
                         setSelectedIndicator(pathname);
                     }}
-                    className={styles.nav}
+                    className="burger-menu-nav"
                 >
-                    <div className={styles.header}>
-                        <p>Navigation</p>
+                    <div className="burger-menu-header">
+                        <p>Un métier, une passion</p>
                     </div>
                     {navItems.map((data, index) => {
                         return (
@@ -58,12 +57,12 @@ export default function index() {
                         );
                     })}
                 </div>
-                <div className="menu-footer">
+                {/* <div className="menu-footer">
                     <a>Awwwards</a>
                     <a>Instagram</a>
                     <a>Dribble</a>
                     <a>LinkedIn</a>
-                </div>
+                </div> */}
             </div>
             <Curve />
         </motion.div>
