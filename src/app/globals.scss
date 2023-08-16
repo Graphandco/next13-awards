@@ -1,0 +1,69 @@
+@use "sass:map";
+@font-face {
+    font-family: "Foundation";
+    src: url("/fonts/Foundation.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Mostranuova";
+    src: url("/fonts/mostranuova.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$mobile: 767px;
+// $breakpoints: (
+//     xs: 400px,
+//     s: 550px,
+//     mobile: 767px,
+//     tablet: 1024px,
+// );
+
+// @mixin mq($key) {
+//     $size: map.get($breakpoints, $key);
+//     @media (max-width: $size) {
+//         @content;
+//     }
+// }
+// @font-face {
+//     font-family: 'Foundation';
+//     src: url('../assets/fonts/Foundation.ttf');
+//     src: url('../img/fonts/Chalkduster.eot?#iefix') format('embedded-opentype'),
+//         url('../img/fonts/Chalkduster.woff2') format('woff2'),
+//         url('../img/fonts/Chalkduster.woff') format('woff'),
+//         url('../img/fonts/Chalkduster.ttf') format('truetype'),
+//         url('../img/fonts/Chalkduster.svg#Chalkduster') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+body {
+    --primary: rgb(242 173 13);
+    --primary-dark: rgb(161 115 11);
+    --secondary: #1c1d20;
+    // --text-light: hsl(42deg 90% 90% / 70%);
+    --text-light: #a7b4be;
+    --text-font: "Mostranuova", sans-serif;
+    --title-font: "Foundation", sans-serif;
+    font-size: 19px;
+    font-family: var(--text-font);
+    // background-image: url(/images/bg-grain-jaune.jpg);
+    // background-color: var(--secondary);
+    background: linear-gradient(90deg, rgb(3, 35, 59), rgb(12, 16, 18));
+    color: var(--text-light);
+    margin: 0px;
+    overflow: hidden; /* Hide scrollbars */
+    cursor: wait;
+}
+main {
+    overflow: hidden;
+}
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2vw;
+}
+
+@import "../styles/loader";
+@import "../styles/header";
+@import "../styles/hero";

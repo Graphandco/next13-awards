@@ -1,0 +1,90 @@
+.hero {
+    position: relative;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: 50px;
+    gap: 50px;
+    height: 100vh;
+    overflow: hidden;
+
+    .hero-subtitle {
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: var(--primary);
+        font-size: clamp(18px, 7px + 2vw, 22px);
+    }
+
+    // .hero-subtitle,
+    // .hero-title {
+    //     font-family: var(--title-font);
+    // }
+
+    .hero-title {
+        color: #fff;
+        font-size: clamp(50px, 20px + 5vw, 80px);
+        line-height: 0.8;
+    }
+
+    .hero-description {
+        margin-top: 30px;
+        font-size: clamp(19px, 7px + 1.3vw, 22px);
+        line-height: 1.2;
+    }
+
+    img {
+        object-fit: cover;
+    }
+
+    .description {
+        position: absolute;
+        top: 35%;
+        left: 65%;
+        font-size: 24px;
+        font-weight: 300;
+        p {
+            margin: 0px;
+            margin-bottom: 10px;
+        }
+        svg {
+            transform: scale(2);
+            margin-bottom: 100px;
+        }
+    }
+    .lottie-wrapper {
+        max-width: 350px;
+        // display: flex;
+        align-items: center;
+    }
+}
+.sliding-words {
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary);
+    opacity: 0.5;
+}
+.slider-container {
+    position: absolute;
+}
+
+.slider {
+    position: relative;
+    white-space: nowrap;
+}
+
+.slider p {
+    position: relative;
+    margin: 0px;
+    font-size: clamp(50px, 20px + 7vw, 100px);
+    font-weight: 500;
+    padding-right: 50px;
+    color: white;
+}
+
+.slider p:nth-of-type(2) {
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
