@@ -7,6 +7,7 @@ import Magnetic from "../Magnetic";
 export default function index({
     children,
     backgroundColor = "var(--primary)",
+    secondary,
     ...attributes
 }) {
     const circle = useRef(null);

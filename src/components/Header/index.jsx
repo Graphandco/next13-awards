@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import styles from "./style.module.scss";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import Nav from "./nav";
@@ -9,12 +8,48 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Rounded from "../../common/RoundedButton";
 import Magnetic from "../../common/Magnetic";
 import Image from "next/image";
+import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
+import { FaTimes } from "react-icons/fa";
 
 export default function index() {
     const header = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const pathname = usePathname();
     const button = useRef(null);
+    const [firstLetterUser, setFirstLetterUser] = useState("");
+    const [avatarLink, setAvatarLink] = useState("/login");
+
+    const { data: session } = useSession();
+
+    useEffect(() => {
+        if (session) {
+            const userLetter = Array.from(session?.user?.name)[0];
+            setFirstLetterUser(userLetter);
+            setAvatarLink("/dashboard");
+        } else {
+            setFirstLetterUser("G");
+        }
+    }, [session]);
+
+    const navItems = [
+        {
+            label: "Accueil",
+            href: "/",
+        },
+        {
+            label: "Prestations",
+            href: "/prestations",
+        },
+        {
+            label: "Réalisations",
+            href: "/realisations",
+        },
+        {
+            label: "Contact",
+            href: "/contact",
+        },
+    ];
 
     useEffect(() => {
         if (isActive) setIsActive(false);
@@ -62,8 +97,8 @@ export default function index() {
 
     return (
         <header>
-            <div ref={header} className={styles.header}>
-                {/* <div className={styles.headerTopbar}>
+            <div ref={header} className="header">
+                {/* <div className="header-topbar">
                     {topbarWords.map((word, index) => (
                         <span
                             key={index}
@@ -73,44 +108,68 @@ export default function index() {
                         </span>
                     ))}
                 </div> */}
-                <div className={styles.headerWrapper}>
+                <div className="header-wrapper">
                     <div>
                         <Image
-                            src="/images/logo-black.svg"
+                            src="/images/logo.svg"
                             width="50"
                             height="50"
                             alt="Graph and Co"
                             className="site-logo"
                         />
-                        <div className={styles.logo}>
-                            <p className={styles.copyright}>©</p>
-                            <div className={styles.name}>
-                                <p className={styles.codeBy}>Made by</p>
-                                <p className={styles.dennis}>Graph & Co</p>
-                                <p className={styles.snellenberg}>Web Agency</p>
+                        <div className="header-brand">
+                            <p className="header-copyright">©</p>
+                            <div className="header-name">
+                                <p className="code-by">Made by</p>
+                                <p className="dennis">Graph & Co</p>
+                                <p className="snellenberg">Web Agency</p>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.nav}>
+                    <nav>
+                        {navItems.map((link, index) => (
+                            <Magnetic key={index}>
+                                <div
+                                    className={
+                                        pathname === `${link.href}`
+                                            ? "el active"
+                                            : "el"
+                                    }
+                                >
+                                    <Link href={link.href}>{link.label}</Link>
+                                    <div className="indicator"></div>
+                                </div>
+                            </Magnetic>
+                        ))}
                         <Magnetic>
-                            <div className={styles.el}>
-                                <a>Work</a>
-                                <div className={styles.indicator}></div>
+                            <div className="header-user">
+                                <div className="el avatar">
+                                    <Link href={avatarLink}>
+                                        {firstLetterUser}
+                                    </Link>
+                                </div>
+                            </div>
+                        </Magnetic>
+
+                        {/* <Magnetic>
+                            <div className="el">
+                                <a>Prestations</a>
+                                <div className="indicator"></div>
                             </div>
                         </Magnetic>
                         <Magnetic>
-                            <div className={styles.el}>
-                                <a>About</a>
-                                <div className={styles.indicator}></div>
+                            <div className="el">
+                                <a>Réalisations</a>
+                                <div className="indicator"></div>
                             </div>
                         </Magnetic>
                         <Magnetic>
-                            <div className={styles.el}>
+                            <div className="el">
                                 <a>Contact</a>
-                                <div className={styles.indicator}></div>
+                                <div className="indicator"></div>
                             </div>
-                        </Magnetic>
-                    </div>
+                        </Magnetic> */}
+                    </nav>
                 </div>
             </div>
             <div ref={button} className="headerButtonContainer">

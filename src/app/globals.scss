@@ -63,7 +63,16 @@ main {
     margin: 0 auto;
     padding: 2vw;
 }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
 @import "../styles/loader";
 @import "../styles/header";
 @import "../styles/hero";
+@import "../styles/footer";
+@import "../styles/modal";
+@import "../styles/form";
+@import "../styles/realisations";
+@import "../styles/dashboard";

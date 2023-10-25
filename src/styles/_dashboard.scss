@@ -1,0 +1,12 @@
+.connected {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 5px;
+    strong {
+        color: white;
+    }
+}
+.logout {
+    padding-block: 1rem;
+}

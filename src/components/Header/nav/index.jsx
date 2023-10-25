@@ -7,7 +7,7 @@ import Curve from "./Curve";
 
 const navItems = [
     {
-        title: "Home",
+        title: "Accueil",
         href: "/",
     },
     {

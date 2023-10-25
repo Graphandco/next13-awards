@@ -6,7 +6,7 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Description from "../components/Description";
 import SlidingImages from "../components/SlidingImages";
-import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,7 @@ export default function Home() {
             setTimeout(() => {
                 setIsLoading(false);
                 document.body.style.cursor = "default";
-                window.scrollTo(0, 0);
+                // window.scrollTo(0, 0);
             }, 2000);
         })();
     }, []);
@@ -28,13 +28,13 @@ export default function Home() {
     return (
         <>
             <AnimatePresence mode="wait">
-                {isLoading && <Preloader />}
+                {/* {isLoading && <Preloader />} */}
             </AnimatePresence>
             <Hero />
             <Description />
             <Projects />
             <SlidingImages />
-            <Contact />
+            <Footer />
         </>
     );
 }

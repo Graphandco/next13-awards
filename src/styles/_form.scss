@@ -1,0 +1,44 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input {
+        padding: 0.75rem 1rem;
+    }
+}
+.form-submit {
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    background-color: var(--primary);
+    text-transform: uppercase;
+    opacity: 1;
+    transition: 0.3s;
+    &:hover {
+        opacity: 0.75;
+    }
+}
+.upload-form {
+    img {
+        width: 200px;
+        max-width: 100%;
+    }
+}
+
+.user-form {
+    @media (min-width: 768px) {
+        width: 500px;
+    }
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.form-link {
+    font-size: 1rem;
+    text-align: center;
+    padding-block: 1rem;
+    a {
+        color: var(--primary);
+    }
+}

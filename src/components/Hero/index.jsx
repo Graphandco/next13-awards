@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/all";
 import { slideUp } from "./animation";
 import { motion } from "framer-motion";
 import LottieRocket from "./lottie/LottieRocket";
+import Rounded from "@/common/RoundedButton";
 
 export default function Home() {
     const firstText = useRef(null);
@@ -56,6 +57,11 @@ export default function Home() {
                         Nous sommes spécialisés dans la réalisation de sites
                         web. Moderne et intuitif, votre site sera un puissant
                         levier pour accroitre la vitalité de votre entreprise.
+                    </div>
+                    <div className="hero-cta">
+                        <Rounded>
+                            <span>More work</span>
+                        </Rounded>
                     </div>
                 </div>
                 <div

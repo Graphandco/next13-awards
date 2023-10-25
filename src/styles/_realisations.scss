@@ -1,0 +1,15 @@
+.realisations-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+.rea-card {
+    background-color: rgba(white, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+}
+.rea-title {
+    font-weight: bold;
+    color: white;
+}

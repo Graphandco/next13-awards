@@ -1,0 +1,41 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal-wrapper {
+    position: relative;
+    @media (min-width: 768px) {
+        width: 500px;
+    }
+    max-width: 100%;
+    margin: auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+}
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s;
+    &:hover {
+        opacity: 0.75;
+    }
+    svg {
+        fill: black;
+        height: 2rem;
+    }
+}
+.modal-title {
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
