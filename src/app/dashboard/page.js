@@ -7,11 +7,11 @@ import { useEffect } from "react";
 
 const Dashboard = () => {
     const router = useRouter();
-    useEffect(() => {
-        if (!session?.status === "authenticated") {
-            router.push("/login");
-        }
-    });
+    // useEffect(() => {
+    //     if (!session?.status === "authenticated") {
+    //         router.push("/login");
+    //     }
+    // });
     const { data: session } = useSession();
 
     return (
